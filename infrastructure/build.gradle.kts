@@ -8,6 +8,7 @@ plugins {
 
 dependencies {
 
+    implementation(project.extra["springbootweb"] as String)
 
 }
 
