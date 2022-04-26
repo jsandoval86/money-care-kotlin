@@ -1,5 +1,3 @@
-rootProject.name = "template-project-kotlin-hexagonal"
+rootProject.name = "moneycare"
 
-include(":infraestructure")
-include(":application")
-include(":domain")
+include(":infrastructure", ":application", ":domain")

@@ -9,7 +9,10 @@ plugins {
 dependencies {
 
     implementation(project.extra["springbootweb"] as String)
+    implementation(project.extra["springdata"] as String)
 
+    implementation(project(":domain"))
+    implementation(project(":application"))
 }
 
 tasks.withType<KotlinCompile> {

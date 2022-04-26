@@ -7,7 +7,11 @@ plugins {
 
 
 dependencies {
-
+    implementation(project(":domain"))
+    implementation(project.extra["inject"] as String)
+    testImplementation(project.extra["test-junit-api"] as String)
+    testRuntimeOnly(project.extra["test-junit-engine"] as String)
+    implementation(project.extra["mockito"]  as String)
 
 }
 
