@@ -1,7 +1,7 @@
 package com.moneycare.tracking.incomes.valueobjects
 
 data class Money(
-    val amount : Double,
+    val amount : Double = 0.0,
     val currency: String = "COP"
 ) {
 

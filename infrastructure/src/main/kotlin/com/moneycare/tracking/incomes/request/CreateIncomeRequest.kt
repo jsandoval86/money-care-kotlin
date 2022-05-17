@@ -1,5 +1,6 @@
 package com.moneycare.tracking.incomes.request
 
+
 /*
  * Documentation API
  * Validation entry layer
@@ -10,6 +11,6 @@ package com.moneycare.tracking.incomes.request
 class CreateIncomeRequest {
     lateinit var concept : String
     var amount : Double = 0.0
-
+    var tagId : String? = null
 }
 

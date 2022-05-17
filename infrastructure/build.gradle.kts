@@ -13,6 +13,12 @@ dependencies {
 
     implementation(project(":domain"))
     implementation(project(":application"))
+
+    testImplementation(project.extra["spring-boot-test"] as String)
+
+    implementation( project.extra["lombok"] as String)
+    annotationProcessor( project.extra["lombok"] as String)
+
 }
 
 tasks.withType<KotlinCompile> {
@@ -21,4 +27,8 @@ tasks.withType<KotlinCompile> {
         jvmTarget = "11"
         allWarningsAsErrors = true
     }
+}
+
+application {
+    mainClass.set("com.moneycare.Application")
 }

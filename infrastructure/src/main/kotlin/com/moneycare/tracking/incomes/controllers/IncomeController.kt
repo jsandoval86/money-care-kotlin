@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("/incomes")
+@RequestMapping(URLIncomes.URL)
 class IncomeController(
     private val createIncomeCommandHandler: CreateIncomeCommandHandler,
     private val createIncomeRequestMapper: CreateIncomeRequestMapper

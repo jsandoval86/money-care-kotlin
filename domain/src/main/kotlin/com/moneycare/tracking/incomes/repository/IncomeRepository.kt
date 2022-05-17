@@ -4,6 +4,6 @@ import com.moneycare.tracking.incomes.models.Income
 
 interface IncomeRepository {
 
-    fun save(income: Income) : Void
+    fun save(income: Income)
 
 }

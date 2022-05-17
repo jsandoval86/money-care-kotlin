@@ -11,6 +11,7 @@ class CreateIncomeRequestMapper {
         return CreateIncomeCommand().apply {
             this.concept = createIncomeRequest.concept
             this.amount = createIncomeRequest.amount
+            this.tagId = createIncomeRequest.tagId
         }
     }
 
