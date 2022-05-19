@@ -11,9 +11,8 @@ data class Tag (
             return Tag(id = id, tag = tag)
         }
 
-        fun withotTag() : Tag {
-            // TODO(define without tag values)
-            return Tag(id = "", tag = "")
+        fun byDefault() : Tag {
+            return Tag(id = "0000", tag = "no tag")
         }
 
     }

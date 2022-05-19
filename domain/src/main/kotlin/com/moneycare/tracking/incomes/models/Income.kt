@@ -11,20 +11,19 @@ data class Income (
     var concept: Concept,
     var amount : Money,
     var date : LocalDateTime,
-    var tag : Tag
+    var tagId : String
 ) {
 
     val messages: List<Message> = mutableListOf()
 
     companion object {
 
-        fun create(concept: Concept, amount : Money, tag: Tag): Income {
-            return create(UUID.randomUUID(), concept, amount, LocalDateTime.now(), tag)
+        fun create(concept: Concept, amount : Money, tagId: String): Income {
+            return create(UUID.randomUUID(), concept, amount, LocalDateTime.now(), tagId)
         }
 
-        fun create(id: UUID, concept: Concept, amount: Money, date: LocalDateTime, tag: Tag) : Income {
-            // TODO(create event income created)
-            return Income(id = id, concept = concept, amount = amount, date = date, tag = tag)
+        fun create(id: UUID, concept: Concept, amount: Money, date: LocalDateTime, tagId: String) : Income {
+            return Income(id = id, concept = concept, amount = amount, date = date, tagId = tagId)
         }
 
     }
