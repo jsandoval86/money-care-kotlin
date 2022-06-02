@@ -1,6 +1,7 @@
 package com.moneycare.tracking.incomes.models
 
 import com.moneycare.shared.messages.outbox.model.Message
+import com.moneycare.tracking.incomes.messages.IncomeCreatedEvent
 import com.moneycare.tracking.incomes.valueobjects.Concept
 import com.moneycare.tracking.incomes.valueobjects.Money
 import java.time.LocalDateTime
@@ -14,12 +15,14 @@ data class Income (
     var tagId : String
 ) {
 
-    val messages: List<Message> = mutableListOf()
+    val messages: MutableList<Message> = mutableListOf()
 
     companion object {
 
         fun create(concept: Concept, amount : Money, tagId: String): Income {
-            return create(UUID.randomUUID(), concept, amount, LocalDateTime.now(), tagId)
+            val newIncome = create(UUID.randomUUID(), concept, amount, LocalDateTime.now(), tagId)
+            newIncome.create()
+            return newIncome
         }
 
         fun create(id: UUID, concept: Concept, amount: Money, date: LocalDateTime, tagId: String) : Income {
@@ -28,4 +31,9 @@ data class Income (
 
     }
 
+    private fun create() {
+        messages.add(
+            IncomeCreatedEvent(this.id)
+        )
+    }
 }

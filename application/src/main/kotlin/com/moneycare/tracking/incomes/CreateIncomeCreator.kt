@@ -1,4 +1,4 @@
-package com.moneycare.tracking.incomes.usecase
+package com.moneycare.tracking.incomes
 
 import com.moneycare.shared.messages.outbox.repository.OutboxRepository
 import com.moneycare.tracking.incomes.commands.CreateIncomeData
@@ -11,7 +11,7 @@ import com.moneycare.tracking.incomes.valueobjects.Money
 import javax.inject.Named
 
 @Named
-class CreateIncomeUseCase(
+class CreateIncomeCreator(
     private val incomeRepository: IncomeRepository,
     private val tagRepository: TagRepository,
     private val outboxRepository: OutboxRepository
@@ -23,7 +23,6 @@ class CreateIncomeUseCase(
         val tag : Tag = getTag(createIncomeData)
 
         val income = Income.create(concept, amount, tag.id)
-
         this.incomeRepository.save(income)
         this.outboxRepository.save(income.messages)
 
