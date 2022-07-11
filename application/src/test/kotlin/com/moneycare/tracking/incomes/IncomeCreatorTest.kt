@@ -2,10 +2,8 @@ package com.moneycare.tracking.incomes
 
 import com.moneycare.shared.helper.MockitoHelper
 import com.moneycare.shared.messages.outbox.repository.OutboxRepository
-import com.moneycare.tracking.incomes.commands.CreateIncomeData
-import com.moneycare.tracking.incomes.models.Tag
-import com.moneycare.tracking.incomes.repository.IncomeRepository
-import com.moneycare.tracking.incomes.repository.TagRepository
+import com.moneycare.tracking.shared.models.Tag
+import com.moneycare.tracking.shared.repository.TagRepository
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.Test
@@ -17,7 +15,7 @@ import org.mockito.MockitoAnnotations
 import java.util.*
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-class CreateIncomeCreatorTest {
+class IncomeCreatorTest {
 
     @Mock
     private lateinit var incomeRepository: IncomeRepository
@@ -29,7 +27,7 @@ class CreateIncomeCreatorTest {
     private lateinit var tagRepository: TagRepository
 
     @InjectMocks
-    private lateinit var createIncomeCreator: CreateIncomeCreator
+    private lateinit var incomeCreator: IncomeCreator
 
     @BeforeAll
     fun init() {
@@ -49,7 +47,7 @@ class CreateIncomeCreatorTest {
         Mockito.`when`(tagRepository.findById(MockitoHelper.anyObject()))
             .thenReturn(Optional.of(Tag.byDefault()))
 
-        val income = this.createIncomeCreator.create(incomeCreateData)
+        val income = this.incomeCreator.create(incomeCreateData)
 
         assertEquals(conceptIncome, income.concept.description)
         assertEquals(amount, income.amount.amount)

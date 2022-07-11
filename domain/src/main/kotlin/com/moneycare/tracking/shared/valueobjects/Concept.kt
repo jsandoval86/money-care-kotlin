@@ -1,4 +1,4 @@
-package com.moneycare.tracking.incomes.valueobjects
+package com.moneycare.tracking.shared.valueobjects
 
 data class Concept(
     var description : String

@@ -1,6 +1,7 @@
 package com.moneycare.tracking.incomes.repository
 
-import com.moneycare.tracking.incomes.models.Tag
+import com.moneycare.tracking.shared.models.Tag
+import com.moneycare.tracking.shared.repository.TagRepository
 import org.springframework.stereotype.Repository
 import java.util.Optional
 

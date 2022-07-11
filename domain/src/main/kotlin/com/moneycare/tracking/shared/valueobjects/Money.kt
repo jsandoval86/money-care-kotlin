@@ -1,4 +1,4 @@
-package com.moneycare.tracking.incomes.valueobjects
+package com.moneycare.tracking.shared.valueobjects
 
 data class Money(
     val amount : Double = 0.0,

@@ -41,7 +41,8 @@ allprojects {
 
     project.extra["springbootweb"] = "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
     project.extra["inject"]        = "javax.inject:javax.inject:1"
-    project.extra["springdata"]    = "org.springframework.data:spring-data-jpa:${springBootVersion}"
+    project.extra["springdata"]    = "org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}"
+    project.extra["jaxb"] = "javax.xml.bind:jaxb-api:2.3.1"
     project.extra["lombok"]        = "org.projectlombok:lombok:1.18.20"
 
     // Test
@@ -49,6 +50,8 @@ allprojects {
     project.extra["test-junit-engine"] = "org.junit.jupiter:junit-jupiter-engine:5.8.1"
     project.extra["mockito"] = "org.mockito:mockito-all:1.10.19"
     project.extra["spring-boot-test"] = "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
+    project.extra["h2"] = "com.h2database:h2:2.1.214"
+
 
 }
 

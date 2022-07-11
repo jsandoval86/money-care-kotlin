@@ -1,9 +1,8 @@
-package com.moneycare.tracking.incomes.models
+package com.moneycare.tracking.incomes
 
 import com.moneycare.shared.messages.outbox.model.Message
-import com.moneycare.tracking.incomes.messages.IncomeCreatedEvent
-import com.moneycare.tracking.incomes.valueobjects.Concept
-import com.moneycare.tracking.incomes.valueobjects.Money
+import com.moneycare.tracking.shared.valueobjects.Concept
+import com.moneycare.tracking.shared.valueobjects.Money
 import java.time.LocalDateTime
 import java.util.UUID
 
@@ -25,7 +24,7 @@ data class Income (
             return newIncome
         }
 
-        fun create(id: UUID, concept: Concept, amount: Money, date: LocalDateTime, tagId: String) : Income {
+        private fun create(id: UUID, concept: Concept, amount: Money, date: LocalDateTime, tagId: String) : Income {
             return Income(id = id, concept = concept, amount = amount, date = date, tagId = tagId)
         }
 

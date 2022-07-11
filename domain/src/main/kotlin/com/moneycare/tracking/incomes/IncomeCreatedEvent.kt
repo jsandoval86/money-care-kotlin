@@ -1,4 +1,4 @@
-package com.moneycare.tracking.incomes.messages
+package com.moneycare.tracking.incomes
 
 import com.moneycare.shared.messages.outbox.model.Event
 import java.util.UUID

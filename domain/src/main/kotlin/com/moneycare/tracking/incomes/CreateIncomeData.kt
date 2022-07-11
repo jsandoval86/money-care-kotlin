@@ -1,4 +1,4 @@
-package com.moneycare.tracking.incomes.commands
+package com.moneycare.tracking.incomes
 
 class CreateIncomeData {
 

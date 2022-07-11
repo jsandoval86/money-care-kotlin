@@ -1,4 +1,4 @@
-package com.moneycare.tracking.incomes.models
+package com.moneycare.tracking.shared.models
 
 data class Tag (
     var id : String,

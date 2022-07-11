@@ -10,6 +10,8 @@ dependencies {
 
     implementation(project.extra["springbootweb"] as String)
     implementation(project.extra["springdata"] as String)
+    implementation(project.extra["jaxb"] as String)
+    implementation(project.extra["h2"] as String)
 
     implementation(project(":domain"))
     implementation(project(":application"))
@@ -18,6 +20,7 @@ dependencies {
 
     implementation( project.extra["lombok"] as String)
     annotationProcessor( project.extra["lombok"] as String)
+    implementation(kotlin("stdlib-jdk8"))
 
 }
 
@@ -31,4 +34,15 @@ tasks.withType<KotlinCompile> {
 
 application {
     mainClass.set("com.moneycare.Application")
+}
+repositories {
+    mavenCentral()
+}
+val compileKotlin: KotlinCompile by tasks
+compileKotlin.kotlinOptions {
+    jvmTarget = "1.8"
+}
+val compileTestKotlin: KotlinCompile by tasks
+compileTestKotlin.kotlinOptions {
+    jvmTarget = "1.8"
 }
