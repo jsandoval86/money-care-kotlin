@@ -7,4 +7,5 @@ interface TagRepository {
 
     fun findById(id : String) : Optional<Tag>
 
+    fun save(tag: Tag)
 }

@@ -4,28 +4,30 @@ import com.moneycare.tracking.tags.entities.TagEntity
 import org.springframework.data.annotation.CreatedDate
 import java.time.LocalDateTime
 import java.util.UUID
+import javax.persistence.Column
 import javax.persistence.Entity
 import javax.persistence.Id
-import javax.persistence.ManyToOne
 import javax.persistence.Table
+import javax.persistence.ManyToOne
 
 @Entity
 @Table(name = "incomes")
-class IncomeEntity {
-
+data class IncomeEntity (
     @Id
-    lateinit var id : UUID
+    @Column(columnDefinition = "BINARY(16)")
+    var id : UUID,
+    @Column
+    var concept : String,
+    @Column
+    var amount : Double,
+    @Column
+    var date : LocalDateTime,
 
-    lateinit var concept : String
-
-    var amount : Double = 0.0
-
-    lateinit var date : LocalDateTime
-
+) {
+    @Column
     @CreatedDate
     lateinit var createdAt : LocalDateTime
 
     @ManyToOne
     lateinit var tag : TagEntity
-
 }

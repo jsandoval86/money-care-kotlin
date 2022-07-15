@@ -3,6 +3,8 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     application
     kotlin("jvm")
+    kotlin("plugin.jpa") version "1.3.72"
+    kotlin("plugin.allopen") version "1.3.72"
 }
 
 
@@ -12,6 +14,7 @@ dependencies {
     implementation(project.extra["springdata"] as String)
     implementation(project.extra["jaxb"] as String)
     implementation(project.extra["h2"] as String)
+    implementation(project.extra["jackson-kotlin"] as String)
 
     implementation(project(":domain"))
     implementation(project(":application"))

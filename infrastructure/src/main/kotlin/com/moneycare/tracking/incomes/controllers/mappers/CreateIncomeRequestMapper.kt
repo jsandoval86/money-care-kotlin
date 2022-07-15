@@ -1,4 +1,4 @@
-package com.moneycare.tracking.incomes.mappers
+package com.moneycare.tracking.incomes.controllers.mappers
 
 import com.moneycare.tracking.incomes.CreateIncomeData
 import com.moneycare.tracking.incomes.request.CreateIncomeRequest

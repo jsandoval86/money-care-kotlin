@@ -1,4 +1,4 @@
-package com.moneycare.tracking.expenses.mappers
+package com.moneycare.tracking.expenses.controllers.mappers
 
 import com.moneycare.tracking.expenses.CreateExpenseData
 import com.moneycare.tracking.expenses.requests.CreateExpenseRequest

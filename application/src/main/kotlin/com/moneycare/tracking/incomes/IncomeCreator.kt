@@ -11,10 +11,11 @@ import javax.inject.Named
 class IncomeCreator(
     private val incomeRepository: IncomeRepository,
     private val tagRepository: TagRepository,
-    private val outboxRepository: OutboxRepository
+    private val outboxRepository: OutboxRepository,
+    private val incomeDataMapper: IncomeDataMapper
 ) {
 
-    fun create(createIncomeData: CreateIncomeData) : Income {
+    fun create(createIncomeData: CreateIncomeData) : IncomeData {
         val concept = Concept(createIncomeData.concept)
         val amount  = Money(createIncomeData.amount)
         val tag : Tag = getTag(createIncomeData)
@@ -23,7 +24,7 @@ class IncomeCreator(
         this.incomeRepository.save(income)
         this.outboxRepository.save(income.messages)
 
-        return income
+        return incomeDataMapper.mapToData(income)
     }
 
     private fun getTag(createIncomeData: CreateIncomeData) =

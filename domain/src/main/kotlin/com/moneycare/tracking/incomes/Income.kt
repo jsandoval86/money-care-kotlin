@@ -24,7 +24,7 @@ data class Income (
             return newIncome
         }
 
-        private fun create(id: UUID, concept: Concept, amount: Money, date: LocalDateTime, tagId: String) : Income {
+        fun create(id: UUID, concept: Concept, amount: Money, date: LocalDateTime, tagId: String) : Income {
             return Income(id = id, concept = concept, amount = amount, date = date, tagId = tagId)
         }
 

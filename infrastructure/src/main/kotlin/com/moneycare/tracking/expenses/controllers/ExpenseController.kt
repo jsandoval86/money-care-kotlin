@@ -3,7 +3,7 @@ package com.moneycare.tracking.expenses.controllers
 import com.moneycare.tracking.expenses.CreateExpenseData
 import com.moneycare.tracking.expenses.Expense
 import com.moneycare.tracking.expenses.ExpenseCreator
-import com.moneycare.tracking.expenses.mappers.CreateExpenseRequestMapper
+import com.moneycare.tracking.expenses.controllers.mappers.CreateExpenseRequestMapper
 import com.moneycare.tracking.expenses.requests.CreateExpenseRequest
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
