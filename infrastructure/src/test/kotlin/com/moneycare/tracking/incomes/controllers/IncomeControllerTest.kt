@@ -2,7 +2,6 @@ package com.moneycare.tracking.incomes.controllers
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
-import com.moneycare.tracking.incomes.Income
 import com.moneycare.tracking.incomes.IncomeData
 import com.moneycare.tracking.incomes.IncomeRepository
 import org.junit.jupiter.api.Test
@@ -12,8 +11,8 @@ import org.springframework.http.MediaType
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
 import com.moneycare.tracking.incomes.request.CreateIncomeRequestBuilder
-import com.moneycare.tracking.shared.models.Tag
-import com.moneycare.tracking.shared.repository.TagRepository
+import com.moneycare.tracking.tags.Tag
+import com.moneycare.tracking.tags.TagRepository
 import org.hamcrest.Matchers
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue

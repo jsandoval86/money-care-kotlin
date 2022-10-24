@@ -17,7 +17,7 @@ class ExpenseController(
     private val createExpenseRequestMapper: CreateExpenseRequestMapper
 ) {
 
-    @PostMapping()
+    @PostMapping
     fun create(@RequestBody request : CreateExpenseRequest) : Expense {
         val createExpenseData = this.createExpenseRequestMapper.mapToData(request)
         return this.expenseCreator.create(createExpenseData)

@@ -1,20 +1,22 @@
 package com.moneycare.tracking.incomes
 
 import com.moneycare.shared.messages.outbox.repository.OutboxRepository
-import com.moneycare.tracking.shared.models.Tag
-import com.moneycare.tracking.shared.repository.TagRepository
+import com.moneycare.tracking.tags.Tag
+import com.moneycare.tracking.tags.TagRepository
 import com.moneycare.tracking.shared.valueobjects.Concept
 import com.moneycare.tracking.shared.valueobjects.Money
+import org.springframework.transaction.annotation.Transactional
 import javax.inject.Named
 
 @Named
-class IncomeCreator(
+open class IncomeCreator(
     private val incomeRepository: IncomeRepository,
     private val tagRepository: TagRepository,
     private val outboxRepository: OutboxRepository,
     private val incomeDataMapper: IncomeDataMapper
 ) {
 
+    @Transactional
     fun create(createIncomeData: CreateIncomeData) : IncomeData {
         val concept = Concept(createIncomeData.concept)
         val amount  = Money(createIncomeData.amount)

@@ -1,8 +1,8 @@
 package com.moneycare.tracking.expenses
 
 import com.moneycare.shared.messages.outbox.repository.OutboxRepository
-import com.moneycare.tracking.shared.models.Tag
-import com.moneycare.tracking.shared.repository.TagRepository
+import com.moneycare.tracking.tags.Tag
+import com.moneycare.tracking.tags.TagRepository
 import com.moneycare.tracking.shared.valueobjects.Concept
 import com.moneycare.tracking.shared.valueobjects.Money
 import javax.inject.Named

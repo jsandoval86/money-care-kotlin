@@ -1,6 +1,5 @@
-package com.moneycare.tracking.shared.repository
+package com.moneycare.tracking.tags
 
-import com.moneycare.tracking.shared.models.Tag
 import java.util.Optional
 
 interface TagRepository {

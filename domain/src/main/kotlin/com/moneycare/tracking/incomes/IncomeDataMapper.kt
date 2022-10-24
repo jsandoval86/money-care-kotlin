@@ -3,7 +3,7 @@ package com.moneycare.tracking.incomes
 import javax.inject.Named
 
 @Named
-class IncomeDataMapper {
+open class IncomeDataMapper {
 
     fun mapToData(income: Income) : IncomeData {
         return IncomeData(

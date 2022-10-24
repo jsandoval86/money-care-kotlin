@@ -19,12 +19,12 @@ data class Expense(
   companion object {
 
     fun create(concept: Concept, amount: Money, tagId: String) : Expense {
-      val newExpense = create(UUID.randomUUID(), concept, amount, LocalDateTime.now(), tagId)
+      val newExpense = of(UUID.randomUUID(), concept, amount, LocalDateTime.now(), tagId)
       newExpense.create()
       return newExpense
     }
 
-    fun create(id: UUID, concept: Concept, amount: Money, date: LocalDateTime, tagId: String) : Expense {
+    private fun of(id: UUID, concept: Concept, amount: Money, date: LocalDateTime, tagId: String) : Expense {
       return Expense(id = id, concept = concept, amount = amount, date = date, tagId = tagId)
     }
 

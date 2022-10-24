@@ -13,7 +13,7 @@ class IncomeEntityMapper {
     }
 
     fun mapToDomainObject(incomeEntity: IncomeEntity): Income {
-        return Income.create(
+        return Income.of(
             incomeEntity.id,
             Concept(incomeEntity.concept),
             Money(incomeEntity.amount),

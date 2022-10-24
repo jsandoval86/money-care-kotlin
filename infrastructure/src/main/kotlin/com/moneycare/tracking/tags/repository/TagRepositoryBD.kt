@@ -1,7 +1,7 @@
 package com.moneycare.tracking.tags.repository
 
-import com.moneycare.tracking.shared.models.Tag
-import com.moneycare.tracking.shared.repository.TagRepository
+import com.moneycare.tracking.tags.Tag
+import com.moneycare.tracking.tags.TagRepository
 import com.moneycare.tracking.tags.entities.TagEntityMapper
 import org.springframework.stereotype.Repository
 import java.util.Optional

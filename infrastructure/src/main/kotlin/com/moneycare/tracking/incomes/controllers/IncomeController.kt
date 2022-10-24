@@ -17,10 +17,11 @@ class IncomeController(
     private val incomeCreator: IncomeCreator
 ) {
 
-    @PostMapping()
+    @PostMapping
     fun create(@RequestBody request : CreateIncomeRequest) : IncomeData {
         val createIncomeData = this.createIncomeRequestMapper.mapToData(request)
         return this.incomeCreator.create(createIncomeData)
     }
 
 }
+

@@ -1,6 +1,6 @@
 package com.moneycare.tracking.tags.entities
 
-import com.moneycare.tracking.shared.models.Tag
+import com.moneycare.tracking.tags.Tag
 import org.springframework.stereotype.Component
 
 @Component
