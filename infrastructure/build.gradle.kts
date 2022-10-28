@@ -12,6 +12,7 @@ dependencies {
 
     implementation(project.extra["springbootweb"] as String)
     implementation(project.extra["springdata"] as String)
+    implementation(project.extra["spring-search"] as String)
     implementation(project.extra["jaxb"] as String)
     implementation(project.extra["h2"] as String)
     implementation(project.extra["jackson-kotlin"] as String)
