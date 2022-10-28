@@ -9,13 +9,13 @@ plugins {
 dependencies {
     implementation(project(":domain"))
 
-    implementation(project.extra["inject"] as String)
+    // only for use transactional annotation
     implementation(project.extra["springdata"] as String)
+    implementation(project.extra["inject"] as String)
     testImplementation(project.extra["test-junit-api"] as String)
     testRuntimeOnly(project.extra["test-junit-engine"] as String)
     implementation(project.extra["mockito"]  as String)
     implementation(kotlin("stdlib-jdk8"))
-
 
 }
 
