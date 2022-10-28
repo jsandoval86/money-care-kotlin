@@ -1,8 +1,9 @@
-package com.moneycare.tracking.incomes.controllers
+package com.moneycare.tracking.incomes.rest
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
-import com.moneycare.tracking.incomes.IncomeData
+import com.moneycare.shared.model.Currency
+import com.moneycare.tracking.incomes.Income
 import com.moneycare.tracking.incomes.IncomeRepository
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
@@ -10,7 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.MediaType
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
-import com.moneycare.tracking.incomes.request.CreateIncomeRequestBuilder
+import com.moneycare.tracking.incomes.rest.request.CreateIncomeRequestBuilder
+import com.moneycare.tracking.incomes.rest.response.IncomeResponse
 import com.moneycare.tracking.tags.Tag
 import com.moneycare.tracking.tags.TagRepository
 import org.hamcrest.Matchers
@@ -43,8 +45,11 @@ class IncomeControllerTest {
     @Test
     fun createIncome() {
 
-        tagRepository.save(Tag("0000", "sin tag"))
-        val createIncomeRequest = CreateIncomeRequestBuilder().build()
+        val tagUndefined = Tag.undefined()
+        tagRepository.save(tagUndefined)
+        val createIncomeRequest = CreateIncomeRequestBuilder()
+            .withTagId(tagUndefined.id)
+            .build()
 
         val response = mockMvc.perform(
             MockMvcRequestBuilders.post(URLIncomes.URL)
@@ -53,16 +58,19 @@ class IncomeControllerTest {
                 .content(objectMapper.writeValueAsBytes(createIncomeRequest))
         ).andExpect(MockMvcResultMatchers.status().isOk)
             .andExpect(MockMvcResultMatchers.jsonPath("$.id", Matchers.notNullValue()))
-            .andExpect(MockMvcResultMatchers.jsonPath("$.amount.amount", Matchers.equalTo(100.0)))
-            .andExpect(MockMvcResultMatchers.jsonPath("$.concept.description", Matchers.equalTo("Salary")))
+            .andExpect(MockMvcResultMatchers.jsonPath("$.concept", Matchers.equalTo("Salary")))
+            .andExpect(MockMvcResultMatchers.jsonPath("$.amount", Matchers.equalTo(100.0)))
+            .andExpect(MockMvcResultMatchers.jsonPath("$.currency", Matchers.equalTo(Currency.COP.name)))
+            .andExpect(MockMvcResultMatchers.jsonPath("$.date", Matchers.notNullValue()))
+            .andExpect(MockMvcResultMatchers.jsonPath("$.tagId", Matchers.equalTo(tagUndefined.id)))
 
 
-        val incomeData : IncomeData = objectMapper.readValue(response.andReturn().response.contentAsString)
+        val income : IncomeResponse = objectMapper.readValue(response.andReturn().response.contentAsString)
 
-        val incomePersisted = incomeRepository.findById(incomeData.id)
+        val incomePersisted = incomeRepository.findById(income.id)
 
         assertTrue(incomePersisted.isPresent)
-        assertEquals(incomeData.id, incomePersisted.get().id)
+        assertEquals(income.id, incomePersisted.get().id)
 
     }
 }

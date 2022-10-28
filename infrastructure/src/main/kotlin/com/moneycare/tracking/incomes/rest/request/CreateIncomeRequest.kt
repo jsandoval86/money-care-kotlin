@@ -1,4 +1,6 @@
-package com.moneycare.tracking.incomes.request
+package com.moneycare.tracking.incomes.rest.request
+
+import javax.validation.constraints.NotEmpty
 
 
 /*
@@ -9,7 +11,9 @@ package com.moneycare.tracking.incomes.request
  * Lets use validation annotations
  */
 class CreateIncomeRequest {
+    @NotEmpty
     lateinit var concept : String
+    @NotEmpty
     var amount : Double = 0.0
     var tagId : String? = null
 }

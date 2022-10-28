@@ -7,10 +7,12 @@ import org.springframework.stereotype.Repository
 open class OutboxRepositoryBD : OutboxRepository{
 
     override fun save(message: Message) {
+        // TODO: save message
         println(message)
     }
 
     override fun save(messages: List<Message>) {
+        // TODO: save messages
         println(messages)
     }
 

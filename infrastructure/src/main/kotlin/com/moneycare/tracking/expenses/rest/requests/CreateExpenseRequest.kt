@@ -1,4 +1,4 @@
-package com.moneycare.tracking.expenses.requests
+package com.moneycare.tracking.expenses.rest.requests
 
 class CreateExpenseRequest {
     lateinit var concept: String

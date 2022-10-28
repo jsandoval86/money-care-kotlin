@@ -8,7 +8,7 @@ import com.moneycare.tracking.shared.valueobjects.Money
 import javax.inject.Named
 
 @Named
-class ExpenseCreator(
+class CreateExpenseUseCase(
     private val tagRepository: TagRepository,
     private val expenseRepository: ExpenseRepository,
     private val outboxRepository: OutboxRepository
@@ -28,7 +28,7 @@ class ExpenseCreator(
 
     private fun getTag(createExpenseData: CreateExpenseData) =
         createExpenseData.tagId?.let {
-            tagRepository.findById(it).orElse(Tag.byDefault())
-        } ?: Tag.byDefault()
+            tagRepository.findById(it).orElse(Tag.undefined())
+        } ?: Tag.undefined()
 
 }

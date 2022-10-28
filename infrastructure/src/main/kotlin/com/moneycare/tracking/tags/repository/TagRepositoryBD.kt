@@ -13,8 +13,13 @@ open class TagRepositoryBD(
 ) : TagRepository {
 
     override fun findById(id: String): Optional<Tag> {
-        println(id)
-        return Optional.empty()
+        val tagEntityOptional = tagRepositoryJPA.findById(id)
+
+        return if( tagEntityOptional.isPresent)
+            Optional.of(tagEntityMapper.mapToDomain(tagEntityOptional.get()))
+        else
+            Optional.empty()
+
     }
 
     override fun save(tag: Tag) {

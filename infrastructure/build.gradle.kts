@@ -16,17 +16,15 @@ dependencies {
     implementation(project.extra["h2"] as String)
     implementation(project.extra["jackson-kotlin"] as String)
     implementation(project.extra["inject"] as String)
+    implementation(project.extra["lombok"] as String)
+    implementation(project.extra["hibernate-validator"]  as String)
 
     implementation(project(":domain"))
     implementation(project(":application"))
 
-
     testImplementation(project.extra["spring-boot-test"] as String)
-
-    implementation( project.extra["lombok"] as String)
     annotationProcessor( project.extra["lombok"] as String)
     implementation(kotlin("stdlib-jdk8"))
-
 }
 
 tasks.withType<KotlinCompile> {

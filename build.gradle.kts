@@ -22,7 +22,7 @@ allprojects {
     }
 
     ext {
-        set("springBootVersion", "2.4.1")
+        set("springBootVersion", "2.7.5")
     }
 
     tasks.withType<Test> {
@@ -45,6 +45,8 @@ allprojects {
     project.extra["jaxb"]           = "javax.xml.bind:jaxb-api:2.3.1"
     project.extra["lombok"]         = "org.projectlombok:lombok:1.18.20"
     project.extra["jackson-kotlin"] = "com.fasterxml.jackson.module:jackson-module-kotlin:2.13.3"
+    project.extra["hibernate-validator"] = "org.hibernate:hibernate-validator:6.2.5.Final"
+
 
     // Test
     project.extra["test-junit-api"] = "org.junit.jupiter:junit-jupiter-api:5.8.1"

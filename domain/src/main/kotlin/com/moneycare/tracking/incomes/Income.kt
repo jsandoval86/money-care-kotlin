@@ -6,7 +6,7 @@ import com.moneycare.tracking.shared.valueobjects.Money
 import java.time.LocalDateTime
 import java.util.UUID
 
-data class Income (
+class Income (
     var id : UUID,
     var concept: Concept,
     var amount : Money,
