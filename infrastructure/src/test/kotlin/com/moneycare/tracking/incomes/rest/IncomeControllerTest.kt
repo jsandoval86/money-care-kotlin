@@ -3,7 +3,6 @@ package com.moneycare.tracking.incomes.rest
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 import com.moneycare.shared.model.Currency
-import com.moneycare.tracking.incomes.Income
 import com.moneycare.tracking.incomes.IncomeRepository
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
