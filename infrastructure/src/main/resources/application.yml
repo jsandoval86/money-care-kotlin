@@ -1,22 +1,37 @@
-version: V1.0
-
-server:
-  port: ${PORT:8001}
-  servlet:
-    session:
-      timeout: 21600s
-    contextPath: /api
-
-
 spring:
+  profiles:
+    active: dev
+  application:
+    name: "money-care-tracking"
   datasource:
-    url: jdbc:h2:mem:localhost
-    driverClassName: org.h2.Driver
-    username: sa
-    password:
+    url: ${DB_JDBC_CONTROLLER:jdbc:h2:mem}:${DB_HOST:localhost}
+    driverClassName: ${DB_DRIVER:org.h2.Driver}
+    username: ${DB_USERNAME:sa}
+    password: ${DB_PASSWORD}
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
+    database-platform: ${DB_PLATFORM:org.hibernate.dialect.H2Dialect}
   h2:
     console:
       enabled: true
       path: /h2-console
+  config:
+    import: optional:configserver:${URL_CONFIG_SERVER:localhost:8888/server/config}
+  cloud:
+    config:
+        enabled: true
+        fail-fast: true
+
+server:
+  port: ${SERVER_PORT:8001}
+  servlet:
+    session:
+      timeout: 21600s
+    contextPath: ${CONTEXT_URL:/api/tracking}
+
+version: "1.0"
+
+money-care:
+  key-words:
+    - kotlin
+    - spring boot
+    - hexagonal architecture

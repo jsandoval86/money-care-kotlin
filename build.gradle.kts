@@ -47,6 +47,10 @@ allprojects {
     project.extra["springbootweb"]  = "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
     project.extra["springdata"]     = "org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}"
     project.extra["spring-search"] = "com.sipios:spring-search:0.2.4"
+    project.extra["spring-cloud-started-config"] = "org.springframework.cloud:spring-cloud-starter-config:3.1.4"
+    project.extra["spring-cloud-started-bootstrap"] = "org.springframework.cloud:spring-cloud-starter-bootstrap:3.1.4"
+
+
 
     // Test
     project.extra["test-junit-api"] = "org.junit.jupiter:junit-jupiter-api:5.8.1"

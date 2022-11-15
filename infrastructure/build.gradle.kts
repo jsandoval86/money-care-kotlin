@@ -10,9 +10,13 @@ plugins {
 
 dependencies {
 
+    // spring
     implementation(project.extra["springbootweb"] as String)
     implementation(project.extra["springdata"] as String)
     implementation(project.extra["spring-search"] as String)
+    implementation(project.extra["spring-cloud-started-bootstrap"] as String)
+    implementation(project.extra["spring-cloud-started-config"] as String)
+
     implementation(project.extra["jaxb"] as String)
     implementation(project.extra["h2"] as String)
     implementation(project.extra["jackson-kotlin"] as String)
@@ -23,6 +27,7 @@ dependencies {
     implementation(project(":domain"))
     implementation(project(":application"))
 
+    // test
     testImplementation(project.extra["spring-boot-test"] as String)
     annotationProcessor( project.extra["lombok"] as String)
     implementation(kotlin("stdlib-jdk8"))
