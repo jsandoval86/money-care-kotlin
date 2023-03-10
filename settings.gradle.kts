@@ -1,3 +1,3 @@
-rootProject.name = "moneycare"
+rootProject.name = "tracking"
 
 include(":infrastructure", ":application", ":domain")
